@@ -1,0 +1,18 @@
+@import "variable_overrides";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+#spanName{
+    border : 2px solid black;
+}
+
+.card-horizontal{
+    display: flex;
+}
+
+.visible {
+    display: block;
+}
+
+.invisible {
+    display: none;
+}

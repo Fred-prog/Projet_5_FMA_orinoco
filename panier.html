@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produit</title>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="container">
+        <div class="row bg-primary">
+            <div class="col">
+                <header>
+                    <nav class="navbar navbar-expand bg-primary navbar-dark">
+                        <a href="" class="navbar-brand">Orinoco</a>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Accueil</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="panier.html">Panier</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+            </div>
+        </div>
+    </div>
+    <!-- contenu de la page -->
+    <!-- contenu produit -->
+    <div id="bloc_A" class="container"></div>
+    <div id="bloc_B" class="container">
+        <div id="sous_bloc_B" class="d-flex">
+            <div id="bloc_formulaire" class="col-6 border my-3">
+                <form class="formulaire mt-3">
+                    <div class="row my-3">
+                        <div class="col-3">
+                            <label for="firstName" class="col-form-label">PRENOM : </label>
+                        </div>
+                        <div class="col-6">
+                            <input id="firstName" type="text" name="prénom" class="form-control col">
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-3">
+                            <label for="lastName" class="col-form-label">NOM : </label>
+                        </div>
+                        <div class="col-6">
+                            <input id="lastName" type="text" name="nom" class="form-control col">
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-3">
+                            <label for="addressUser" class="col-form-label">ADRESSE : </label>
+                        </div>
+                        <div class="col-6">
+                            <input id="addressUser" type="text" name="adresse" class="form-control col"> 
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-3">
+                            <label for="cityUser" class="col-form-label">VILLE : </label>
+                        </div>
+                        <div class="col-6">
+                            <input id="cityUser" type="text" name="ville" class="form-control col">
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-3">
+                            <label for="emailUser" class="col-form-label">E-MAIL : </label>
+                        </div>
+                        <div class="col-6">
+                            <input id="emailUser" type="email" name="e-mail" class="form-control col">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="bloc_facture" class="col-6">
+                <div id="facture">
+                    <table class="table table-bordered mt-3">
+                        <thead>
+                            <tr>
+                                <th scope="col">Qté</th>
+                                <th scope="col">Descriptif</th>
+                                <th scope="col">Prix U</th>
+                                <th scope="col">Prix Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                        <tr>
+                            <th colspan="3" class="bg-secondary"></th>
+                            <th class="text-center">TOTAL</th>
+                        </tr>
+                        <tr> 
+                            <th colspan="3" class="bg-secondary"></th>
+                            <td id="cellulMontant"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            </div>
+            <div id="bloc_bouton" class="text-right flex-row-reverse">
+                <button id="bouton_valide" class="pull-right btn-lg my-3">Valider votre commande</button>
+            </div>
+        </div>
+    </div>
+       <!-- footer -->
+       <div class="container mt-5">
+        <div class="row bg-primary">
+            <div class="col">
+                <footer>
+                    <ul class="list-inline text-center text-white mt-3">
+                        <li class="list-inline-item"><a class="text-white" href="#">À propos</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a class="text-white" href="#">Conditions d'utilisations</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a class="text-white" href="#">Nous contacter</a></li>
+                    </ul>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+
+    <script type="text/javascript" src="panier.js"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <!-- <scrip src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </scrip>
+
+    <scrip src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </scrip>
+    <scrip src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </scrip>-->
+</body>
+
+</html>
