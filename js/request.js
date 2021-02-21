@@ -1,5 +1,4 @@
-
-//export const 
+//requete GET 
 get = function (url) {
     return new Promise((resolve, reject)=> {
         let request = new XMLHttpRequest();
@@ -14,14 +13,15 @@ get = function (url) {
         request.send();
     });
 }
+// requete erreur ------------------------------------------
 
 let catchError = function(e) {
     console.error("Erreur ajax", e);
 }
 
+//-------------------------- Requete post -------------------
 
-
-post1 = function (url, jsonBody) {
+post = function (url, jsonBody) {
     return new Promise((resolve, reject) => {
         let requestPost = new XMLHttpRequest();
         requestPost.onload = function () {
@@ -30,6 +30,5 @@ post1 = function (url, jsonBody) {
         requestPost.open('POST', url, true);
         requestPost.setRequestHeader("Content-Type", "application/json");
         requestPost.send(JSON.stringify(jsonBody));
-        //resolve(request.status);
     })
 }

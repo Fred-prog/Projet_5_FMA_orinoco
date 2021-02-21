@@ -1,9 +1,8 @@
-const produitId = window.location.search;
-console.log(produitId);
-
-const urlParams = new URLSearchParams(produitId);
-let idprod = urlParams.get('id');
-console.log(idprod);
+const produitId = window.location.search;    
+    console.log(produitId);
+    const urlParams = new URLSearchParams(produitId);
+    let idprod = urlParams.get('id');
+    console.log(idprod);
 
 //tant que pour le choix de couleurs
 function selectCouleur(colors) {
@@ -21,7 +20,8 @@ function selectCouleur(colors) {
     };
 }
 
-function afficheteddy(array, idProduct ) {
+//Fonction Affichage du produit - menu couleur - bouton ajout panier
+function afficheteddy(array, idProduct) {
     
     let i = 0;
     while (i < array.length) {
@@ -60,14 +60,9 @@ function afficheteddy(array, idProduct ) {
                 if (verifCouleur == false) {
                     messageChoixCouleur();
                 } else {
-                    add(idProduct);
+                    addProduct(idProduct);
                 }
             })
-            //document.getElementById('addBasket').addEventListener('click', function() {
-
-
-            //});
-            
         }
         i++;
     }
@@ -116,21 +111,6 @@ function messageAddInBasket() {
     alertOk.appendChild(valideText);
 }
 
-
-//----------------------------------------------------------------
-
-console.log(localStorage.length);
-
-function test() {
-    let verifCouleur = valideColor();
-    if (verifCouleur == false) {
-        messageChoixCouleur();
-    } else {
-        add();
-    }
-}
-
-
 //----------------------------------------------------------------
 function valideColor() {
     let color = document.querySelector('select').value;
@@ -140,7 +120,7 @@ function valideColor() {
     }
 }    
 
-function add(cleProduct) {
+function addProduct(cleProduct) {
     {
         let dataTeddy = [];
         if (localStorage.length == 0) {
@@ -172,7 +152,6 @@ function add(cleProduct) {
         }
     }
 }
-
 
 get("http://localhost:3000/api/teddies/").then(resolve => {
 

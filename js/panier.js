@@ -30,8 +30,6 @@ function removeItems() {
 
 function clearItems() {
     let array = JSON.parse(localStorage["basket"]);
-    console.log(array);
-    console.log(array.length);
     if (array.length == "0") {
         localStorage.clear();
         PanierVide();
@@ -72,9 +70,6 @@ function addProduct() {
                 if (productId == itemProduct.id) {
                     console.log(productId);
                     itemProduct.quantity++;
-                    if (itemProduct.quantity == 0) {
-                        console.log('STOP');
-                    }
                 }
                 localStorage.setItem("basket", JSON.stringify(products));
                 document.location.reload();
@@ -83,7 +78,7 @@ function addProduct() {
         })
     });
 }
-//----------------------------------------------------------
+// Fonction Affichage des Items Produit-----------------------------------
 
 function afficheItems(reponse, tab) {
     let j = 0;
@@ -215,25 +210,22 @@ function afficheItems(reponse, tab) {
                 if (item.quantity < 1) {
                     divRow.setAttribute("id", "stop");
                 }
-                removeItems();
-                
+                removeItems();   
             }
         });
         j++;
     }
 }
 
+// fin Item affichage Produit -----------------------------------------------------------
 
-//----------------------------------------------------------
+// -----------------------Exécution du code ----------------
 
 if (localStorage.length == "0") {
     PanierVide();
     let blocB = document.getElementById('bloc_B');
     blocB.classList.add("invisible");
-
-    console.log('Votre panier est vide ! ');
 } else {
-
     let blocB = document.getElementById('bloc_B');
     blocB.classList.add("visible");
 
@@ -251,23 +243,12 @@ if (localStorage.length == "0") {
         let fact = JSON.parse(localStorage["basket"]);
         afficheFacture(arrayTeddies, fact);
      }).catch(catchError);
-
-    
-    console.log('Il y a une nouvelle entrée ! ');
 };
+// --------------------- Fin Exécution du code -------------------------------
 
 
-function creaProduct() {
-    let products = [];
-                let arrayId = JSON.parse(localStorage["basket"]);
-                arrayId.forEach(elementId => {
-                    products.push(elementId.id);
-                    console.log(products);
-                });
-}
+//------------------ Fonction Affichage donnée de la facture ----------------------
 
-
-// fin Item Produit -----------------------------------------------------------
 function afficheFacture(reponse, storage) {
     let total = 0;
     let k = 0;
@@ -314,23 +295,25 @@ function afficheFacture(reponse, storage) {
         });
         k++;
     }
-    //Affichage du total dans le Tableau facture
-    let test = "oui c'est bon"
+
+    //---------- Affichage du total dans le Tableau facture -------------------------
 
     let montant = document.getElementById('celluleMontant');
     let totalAffiche = document.createTextNode(total);
     montant.appendChild(totalAffiche);
+
+    //-------------------- Test des Inputs du Formulaire -----------------------------
 
     document.getElementById("firstName").addEventListener("input", testFirstname);
     document.getElementById("lastName").addEventListener("input", testLastname);
     document.getElementById("addressUser").addEventListener("input", testAddress);
     document.getElementById("cityUser").addEventListener("input", testCity);
     document.getElementById("emailUser").addEventListener("input", testEmail);
+
     //Bouton valider -----------------------------------------------------------------------------
 
     document.getElementById("bouton_valide").addEventListener('click', function (e) {
 
-        //document.getElementById("firstName").addEventListener("input", test);
         let verifFirstname = testFirstname();
         let verifLastname = testLastname();
         let verifAddress = testAddress();
@@ -338,7 +321,6 @@ function afficheFacture(reponse, storage) {
         let verifEmail = testEmail();
 
         if (verifFirstname && verifLastname && verifAddress && verifCity && verifEmail == true) {
-            console.log("OK");
             let contact = new Object();
             contact.firstName = firstName.value;
             contact.lastName = lastName.value;
@@ -356,17 +338,15 @@ function afficheFacture(reponse, storage) {
             body.contact = contact;
             body.products = products;
 
-            console.log(body);
+//------------------------------- Requete POST -----------------------------------------
 
-            post1("http://localhost:3000/api/teddies/order", body).then(resolve => {
+            post("http://localhost:3000/api/teddies/order", body).then(resolve => {
                 let testrequest = JSON.parse(resolve);
-                console.log(testrequest);
                 let orderId = testrequest.orderId
                 document.location = "commande.html?id= " + orderId + "&total=" + total;
             });
             localStorage.clear();
         } else {
-            console.log("Non OK");
             e.preventDefault();
         }
     })
@@ -374,7 +354,7 @@ function afficheFacture(reponse, storage) {
 }
 // Début bloc FACTURE ---------------------------------------------------------
 
-// fin de la fonction ---------------------------------------------------------------
+//------------------------------------ Les Fonctions test des inputs ---------------------------------
 
 function testFirstname() {
     let prenom = document.querySelector('#firstName');
@@ -390,7 +370,6 @@ function testFirstname() {
         return true;
     }
 }
-
 
 function testLastname() {
 
@@ -424,7 +403,6 @@ function testAddress() {
     }
 }
 
-
 function testCity() {
 
     let ville = document.querySelector('#cityUser');
@@ -434,13 +412,11 @@ function testCity() {
         erreur.classList.replace("erreur_invisible", "erreur_visible");
         return false;
     } else {
-        console.log(ville.value);
         let erreur = document.getElementById('erreurVille');
         erreur.classList.replace("erreur_visible", "erreur_invisible");
         return true;
     }
 }
-
 
 function testEmail() {
 
@@ -451,7 +427,6 @@ function testEmail() {
         erreur.classList.replace("erreur_invisible", "erreur_visible");
         return false;
     } else {
-        console.log(email.value);
         let erreur = document.getElementById('erreuremail');
         erreur.classList.replace("erreur_visible", "erreur_invisible");
         return true;

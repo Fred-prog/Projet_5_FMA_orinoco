@@ -7,10 +7,15 @@ let totalCommande = urlParams.get('total');
 console.log(idCommande);
 console.log(totalCommande);
 
-let messageCom = document.getElementById("messageId");
-let phraseId = document.createTextNode("Votre numéro de commande est le : " + idCommande);
-let messagePrix = document.getElementById("messageTotal");
-let phraseTotal = document.createTextNode("Le montant de votre achat est de : " + totalCommande + " euros.");
+function infoCommande(idCom, prixCom) {
+    
+    let messageCom = document.getElementById("messageId");
+    let phraseId = document.createTextNode("Votre numéro de commande est le : " + idCom);
+    let messagePrix = document.getElementById("messageTotal");
+    let phraseTotal = document.createTextNode("Le montant de votre achat est de : " + prixCom + " euros.");
+    
+    messageCom.appendChild(phraseId);
+    messagePrix.appendChild(phraseTotal);
+}
 
-messageCom.appendChild(phraseId);
-messagePrix.appendChild(phraseTotal);
+infoCommande(idCommande, totalCommande);

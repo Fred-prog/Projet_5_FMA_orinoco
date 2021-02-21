@@ -90,7 +90,7 @@ abbr[data-original-title] {
   text-decoration: underline dotted;
   cursor: help;
   border-bottom: 0;
-  text-decoration-skip-ink: none;
+  /*text-decoration-skip-ink: none;*/
 }
 
 address {
@@ -4475,9 +4475,9 @@ input[type=button].btn-block {
   }
 }
 
-.accordion {
+/*.accordion {
   overflow-anchor: none;
-}
+}*/
 .accordion > .card {
   overflow: hidden;
 }
@@ -9910,6 +9910,24 @@ h3 {
 
 .invisible {
   display: none;
+}
+
+.erreur_invisible {
+  visibility: hidden;
+}
+
+.erreur_visible {
+  visibility: visible;
+  color: red;
+  font-style: italic;
+}
+
+#lastName {
+  text-transform: uppercase;
+}
+
+.color-btn-valide {
+  background-color: #66CDAA;
 }
 
 /*# sourceMappingURL=style.css.map */

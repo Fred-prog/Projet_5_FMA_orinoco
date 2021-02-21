@@ -16,3 +16,22 @@
 .invisible {
     display: none;
 }
+
+
+.erreur_invisible{
+    visibility: hidden;
+}
+
+.erreur_visible {
+    visibility: visible;
+    color: red;
+    font-style: italic;
+}
+
+#lastName{
+    text-transform: uppercase;
+}
+
+.color-btn-valide{
+    background-color: #66CDAA;
+}
